@@ -21,14 +21,14 @@ export class PedidoController {
     return this.pedidoService.create(createPedidoDto);
   }
 
-  @Get(':id')
-  findClienteWithPedidos(@Param('id', ParseIntPipe) id: number) {
-    return this.pedidoService.findClienteWithPedidos(id);
+  @Get('/')
+  findAll() {
+    return this.pedidoService.findAll();
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.pedidoService.findOne(+id);
+  findClienteWithPedidos(@Param('id', ParseIntPipe) id: number) {
+    return this.pedidoService.findClienteWithPedidos(id);
   }
 
   @Patch(':id')

@@ -5,6 +5,7 @@ import { ItemEntity } from "./item/entities/item.entity";
 import { UnidadeEntity } from "./unidade/entities/unidade.entity";
 import { PrecoEntity } from "./preco/entities/preco.entity";
 import { PedidoEntity } from "./pedido/entities/pedido.entity";
+import { PedidoPrecoEntity } from "./pedido-preco/entities/pedido-preco.entity";
 
 const config: DataSourceOptions = {
     type: 'postgres',
@@ -20,7 +21,8 @@ const config: DataSourceOptions = {
         ItemEntity,
         UnidadeEntity,
         PrecoEntity,
-        PedidoEntity
+        PedidoEntity,
+        PedidoPrecoEntity
     ]
 }
 

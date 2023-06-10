@@ -1,18 +1,16 @@
 import { PedidoEntity } from "src/pedido/entities/pedido.entity";
 import { PrecoEntity } from "src/preco/entities/preco.entity";
-import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity({ name: 'pedidos_precos' })
 export class PedidoPrecoEntity {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @ManyToOne(() => PedidoEntity)
-    @JoinColumn({ name: 'id' })
+    @ManyToOne(() => PedidoEntity, pedido => pedido.pedidoPreco)
     pedido: PedidoEntity;
 
     @ManyToOne(() => PrecoEntity)
-    @JoinColumn({ name: 'id' })
     preco: PrecoEntity;
 
     @Column()

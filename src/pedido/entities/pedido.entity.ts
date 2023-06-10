@@ -6,8 +6,10 @@ import {
     ManyToMany,
     ManyToOne,
     PrimaryGeneratedColumn,
-    JoinTable
+    JoinTable,
+    OneToMany
 } from "typeorm";
+import { PedidoPrecoEntity } from "src/pedido-preco/entities/pedido-preco.entity";
 
 @Entity({ name: 'pedidos' })
 export class PedidoEntity {
@@ -20,7 +22,7 @@ export class PedidoEntity {
     @Column({ name: 'cliente_endereco' })
     clienteEndereco: string;
 
-    @Column()
+    @Column({ nullable: true })
     funcionario: string;
 
     @Column({ name: 'data_entrada', type: 'timestamp', default: new Date() })
@@ -66,7 +68,6 @@ export class PedidoEntity {
     @ManyToOne(() => ClienteEntity, cliente => cliente.pedidos)
     cliente: ClienteEntity;
 
-    @ManyToMany(() => PrecoEntity, (preco) => preco.pedidos)
-    @JoinTable({ name: "pedidos_precos" })
-    precos: PrecoEntity[]
+    @OneToMany(() => PedidoPrecoEntity, pedidoPreco => pedidoPreco.pedido)
+    pedidoPreco: PedidoPrecoEntity[];
 }

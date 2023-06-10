@@ -20,7 +20,4 @@ export class PrecoEntity {
 
     @ManyToOne(() => UnidadeEntity, unidade => unidade.preco)
     unidade: UnidadeEntity;
-
-    @ManyToMany(() => PedidoEntity, (pedido) => pedido.precos)
-    pedidos: PedidoEntity[];
 }

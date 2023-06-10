@@ -1,7 +1,7 @@
 import { PrecoEntity } from 'src/preco/entities/preco.entity';
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany } from 'typeorm';
 
-@Entity({ name: 'servicos '})
+@Entity({ name: 'servicos'})
 export class ServicoEntity {
     @PrimaryGeneratedColumn()
     id: number;

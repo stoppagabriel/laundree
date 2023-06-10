@@ -28,6 +28,12 @@ export class PedidoService {
     return this.pedidoRepository.save(newPedido);
   }
 
+  findAll() {
+    return this.pedidoRepository.find({
+      relations: ['pedidoPreco']
+    });
+  }
+
   findClienteWithPedidos(clienteId: number) {
     const cliente = this.clienteRepository.findOne({
       where: { id: clienteId },
